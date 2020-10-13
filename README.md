@@ -97,3 +97,5 @@ login，
 由于刷新页面之后，state的数据会消失，所以要在app.js 文件中获取储存在localStorage里的
 token跟userdata,并放入state。这样每次页面一刷新就从localStorage里面获取token跟userdata,并放入state。state就不会丢失了。
 
+
+test
