@@ -10,7 +10,8 @@ function PrivateRoute({component:Component,...rest}) {
             let token=window.localStorage.getItem("token")
             if(token){
                 return (<Component {...props}></Component>)
-            }else{
+            } else {
+                //如果没有登录就跳转到signin界面
                 return (<Redirect to="/signin"/>)
             }
         }}></Route>

@@ -28,7 +28,7 @@ function SignIn(props) {
     const loginData=useSelector(state=>state.loginData)
     if(loginData.isAuthenticated){
         //这里必须要写return
-        return(<Redirect to={"/"}></Redirect>)
+        return(<Redirect to={"/dashboard"}></Redirect>)
     }
     return (
         <Fragment>

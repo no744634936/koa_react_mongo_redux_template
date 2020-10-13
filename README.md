@@ -82,11 +82,14 @@ npm install concurrently --save
 "both": "concurrently "npm run dev" "npm run client""
 
 然后 在server文件夹下 npm run both 就可以同时打开，server 跟client 两个服务器。
+
 npm install react-router-dom
 
 npm install redux react-redux redux-thunk
 
 npm install axios
+
+npm install redux-devtools-extension 
 
 
 
@@ -96,6 +99,3 @@ login，
 将用户数据从数据库中取出来放入localStorage 里面还要放入redux的state里面。
 由于刷新页面之后，state的数据会消失，所以要在app.js 文件中获取储存在localStorage里的
 token跟userdata,并放入state。这样每次页面一刷新就从localStorage里面获取token跟userdata,并放入state。state就不会丢失了。
-
-
-test
