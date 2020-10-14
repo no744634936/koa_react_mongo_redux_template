@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import Navigation from "./Navigation.js"
-import Sidebar from "./sidebar/Sidebar.js"
+import Sidebar from "./Sidebar.js"
 function Layout(props) {
     return (
         <Fragment>

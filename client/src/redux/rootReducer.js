@@ -1,9 +1,9 @@
 import {combineReducers} from "redux"
-import registerReducer from "./signup/registerReducer.js"
+import signupReducer from "./signup/signupReducer.js"
 import authenticationReducer from "./authentication/authReducer.js"
 
 const rootReducer=combineReducers({
-    registerData:registerReducer,
+    signupData:signupReducer,
     loginData:authenticationReducer,
 
 })

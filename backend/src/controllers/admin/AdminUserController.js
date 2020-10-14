@@ -40,6 +40,9 @@ class AdminUserController{
             //返回token
             let payload={ userId: find_result._id,role:find_result.role}
             let token = jwt.sign(payload,JWT_SECRET_KEY,{expiresIn:60*60*2});//expiresIn的单位为秒
+            
+            //设置一个cookie
+            ctx.cookie.set("token_cookie",token,{maxAge:60*60*1000})
             // return token
             ctx.body=new Success({
                 status:200,
@@ -55,6 +58,10 @@ class AdminUserController{
     getProfile=async(ctx,next)=>{
         console.log(ctx);
         ctx.body="test profile"
+    }
+
+    signout=async(ctx,next)=>{
+
     }
 }
 

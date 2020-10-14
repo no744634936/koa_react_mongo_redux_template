@@ -1,9 +1,15 @@
 import React,{Fragment}from 'react'
 import {Link} from "react-router-dom"
-import {useSelector} from "react-redux";
+import {useSelector,useDispatch} from "react-redux";
+import {signoutAction} from "../../redux/authentication/authAction.js"
+
 function Navigation() {
     const loginData = useSelector(state => state.loginData)
-    console.log(loginData);
+
+    const dispatch=useDispatch();
+    const logout=()=>{
+        dispatch(signoutAction());
+    }
     
     const authLinks = (
         <ul className="navbar-nav ml-auto">
@@ -14,7 +20,7 @@ function Navigation() {
             <Link className="nav-link" to="#!">{loginData.user.firstName}</Link>
         </li>
         <li className="nav-item">
-            <Link className="nav-link" to="#!">logout</Link>
+                <span className="nav-link" onClick={logout}>Signout</span>
         </li>
     </ul>
     )

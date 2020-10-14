@@ -1,11 +1,6 @@
 import {LOGIN_REQUEST,LOGIN_SUCCESSED,LOGIN_FAILED,LOGOUT,USER_LOADED,USER_LOAD_FAILED,DELETE_ACCOUNT,DELETE_ACCOUNT_FAILED} from "../actionTyps.js"
 
-
-
-
-const { Switch } = require("react-router-dom")
-
-const initialstate={
+const initialState={
     token:null,
     user:{},
     isAuthenticated:false,
@@ -13,11 +8,11 @@ const initialstate={
 }
 
 
- const authReducer=(state=initialstate,action)=>{
+ const authReducer=(state=initialState,action)=>{
     switch(action.type){
         case LOGIN_REQUEST:
             return{
-                ...state
+                ...initialState
             }
             break;
         case LOGIN_SUCCESSED:
@@ -38,9 +33,11 @@ const initialstate={
                 user: action.payload.user, 
                 token:action.payload.token,
             }
+            break;
+        case LOGOUT:
         case LOGIN_FAILED: 
             return{
-                ...state,
+                ...initialState,
                 isAuthenticated:false, 
                 loading:false,
                 user:{}

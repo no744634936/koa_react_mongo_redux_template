@@ -1,5 +1,8 @@
 import axios from "axios"
-import {LOGIN_REQUEST,LOGIN_SUCCESSED,LOGIN_FAILED,LOGOUT,USER_LOADED,USER_LOAD_FAILED,DELETE_ACCOUNT,DELETE_ACCOUNT_FAILED} from "../actionTyps.js"
+import {LOGIN_REQUEST,LOGIN_SUCCESSED,LOGIN_FAILED,LOGOUT,
+        USER_LOADED,USER_LOAD_FAILED,
+        DELETE_ACCOUNT,DELETE_ACCOUNT_FAILED,
+        REGISTER_USER_REQUEST} from "../actionTyps.js"
 
 
 
@@ -22,7 +25,7 @@ export const loginAction=(formData)=>{
                 // result.data.messages.forEach(msg=>{
                 //     dispatch(setAlert(msg,"danger"))
                 // })
-                dispatch({type:LOGIN_FAILED,payload:result.data.data})
+                dispatch({type:LOGIN_FAILED,payload:result.data.message})
             }
         }catch(error){
             // dispatch({type:LOGIN_FAILED,payload:result.data.data})
@@ -44,3 +47,12 @@ export const loadUserAction=()=>{
         }
     }
 }
+
+export const signoutAction=()=>{
+    return async(dispatch)=>{
+        localStorage.clear();
+        dispatch({type:LOGOUT})
+    }
+}
+
+
