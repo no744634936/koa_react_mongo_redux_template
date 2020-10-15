@@ -26,5 +26,6 @@ module.exports={
     already_liked:{errnum:10017 ,messages:"已经赞过了"},
     not_liked:{errnum:10018 ,messages:"还没点赞"},
     comment_not_exist:{errnum:10019 ,messages:"该评论不存在"},
-    email_not_exist:{errnum:1000,message:"邮箱不存在"},
+    email_not_exist: { errnum:100020, message: "邮箱不存在" },
+    SIGNOUT_SUCCESSED:{ errnum:0, message: "退出成功" },
 }

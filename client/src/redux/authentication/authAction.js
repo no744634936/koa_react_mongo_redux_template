@@ -1,6 +1,10 @@
 import axios from "axios"
-import {LOGIN_REQUEST,LOGIN_SUCCESSED,LOGIN_FAILED,LOGOUT,
-        USER_LOADED,USER_LOAD_FAILED,
+import {LOGIN_REQUEST,LOGIN_SUCCESSED,LOGIN_FAILED,
+    USER_LOADED,
+    USER_LOAD_FAILED,
+    LOGOUT_REQUEST,
+    LOGOUT,
+    LOGOUT_FAILED,
         DELETE_ACCOUNT,DELETE_ACCOUNT_FAILED,
         REGISTER_USER_REQUEST} from "../actionTyps.js"
 
@@ -40,7 +44,6 @@ export const loadUserAction=()=>{
         let token=localStorage.getItem("token");
         if(token){
             let user=JSON.parse(localStorage.getItem("user"));
-            
             dispatch({type:USER_LOADED,payload:{token,user}})
         }else{
             dispatch({type:USER_LOAD_FAILED,payload:{err:"failed to login"}})
@@ -49,9 +52,18 @@ export const loadUserAction=()=>{
 }
 
 export const signoutAction=()=>{
-    return async(dispatch)=>{
-        localStorage.clear();
-        dispatch({type:LOGOUT})
+    return async (dispatch) => {
+        dispatch({type:LOGOUT_REQUEST})
+        //后台清楚掉cookie
+        const response = await axios.get("/api/admin/signout")
+        //前台清楚掉localStorage
+        if (response.data.errnum === 0) {
+            localStorage.clear();
+            dispatch({type:LOGOUT})
+        } else {
+            dispatch({type:LOGOUT_FAILED,payload:{error:response.data.data}})
+        }
+
     }
 }
 

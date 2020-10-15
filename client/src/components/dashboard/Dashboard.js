@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Layout from "../layout/Layout.js"
+
 
 function Dashboard() {
     return (
-        <div>
-            test
-        </div>
+        <Layout>
+            <Fragment>
+                test
+            </Fragment>
+        </Layout>
+
     )
 }
 

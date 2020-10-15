@@ -1,5 +1,8 @@
 const adminUserModel =require("../../models/admin/AdminUserModel.js")
-const { email_exist, register_failed_info,email_not_exist} = require("../../myTool/errInfo.js")
+const { email_exist,
+        register_failed_info,
+        email_not_exist,
+        SIGNOUT_SUCCESSED,} = require("../../myTool/Info.js")
 const{Success,Error}= require("../../myTool/apiResultFormat.js")
 const {JWT_SECRET_KEY} =require("../../config/keys.js")
 const jwt = require('jsonwebtoken');
@@ -40,9 +43,8 @@ class AdminUserController{
             //返回token
             let payload={ userId: find_result._id,role:find_result.role}
             let token = jwt.sign(payload,JWT_SECRET_KEY,{expiresIn:60*60*2});//expiresIn的单位为秒
-            
             //设置一个cookie
-            ctx.cookie.set("token_cookie",token,{maxAge:60*60*1000})
+            ctx.cookies.set("token_cookie",token,{maxAge:60*60*1000})
             // return token
             ctx.body=new Success({
                 status:200,
@@ -57,11 +59,12 @@ class AdminUserController{
 
     getProfile=async(ctx,next)=>{
         console.log(ctx);
-        ctx.body="test profile"
+        ctx.body = "test profile"
     }
 
     signout=async(ctx,next)=>{
-
+        ctx.cookies.set('token_cookie', null);
+        ctx.body=new Success(SIGNOUT_SUCCESSED)
     }
 }
 

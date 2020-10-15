@@ -14,13 +14,13 @@ function Sidebar() {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/orders">
                         <span data-feather="file"></span>
                         Orders
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/products">
                         <span data-feather="shopping-cart"></span>
                         Products
                         </a>

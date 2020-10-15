@@ -1,5 +1,5 @@
 const userModel =require("../models/userModel.js")
-const { email_exist, register_failed_info,email_not_exist} = require("../myTool/errInfo.js")
+const { email_exist, register_failed_info,email_not_exist} = require("../myTool/Info.js")
 const{Success,Error}= require("../myTool/apiResultFormat.js")
 const {JWT_SECRET_KEY} =require("../config/keys.js")
 const jwt = require('jsonwebtoken');

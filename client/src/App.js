@@ -5,7 +5,8 @@ import Home from "./components/home/Home.js"
 import SignIn from "./components/signin/SignIn.js"
 import SignUp from "./components/signup/SignUp.js"
 import {loadUserAction} from "./redux/authentication/authAction"
-import {useDispatch,useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Products from "./components/products/Products.js"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <div className="App">
                 <Switch>
                     <PrivateRoute exact path="/" component={Home}></PrivateRoute>
+                    <PrivateRoute exact path="/products" component={Products}></PrivateRoute>
                     <Route exact path="/signin" component={SignIn}></Route>
                     <Route exact path="/signup" component={SignUp}></Route>
                 </Switch>
