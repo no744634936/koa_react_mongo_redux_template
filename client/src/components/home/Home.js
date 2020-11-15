@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import Layout from "../layout/Layout.js"
-import "./style.css"
 import { Container ,Row,Col} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 function Home() {
