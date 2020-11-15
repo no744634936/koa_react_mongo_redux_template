@@ -33,7 +33,7 @@ function Navigation() {
     )
     return (
         <Fragment>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{zIndex: 1}}>
                 <Container>
                     <Navbar.Brand href="#home">Admin Dashboard</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

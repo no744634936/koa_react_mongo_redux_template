@@ -1,5 +1,5 @@
 import React, { Fragment,useState} from 'react'
-import Layout2 from "../layout/Layout2.js"
+import Layout from "../layout/Layout.js"
 import Input from "../UI//Input.js"
 import {loginAction} from "../../redux/authentication/authAction.js"
 import {useDispatch,useSelector} from "react-redux";
@@ -34,7 +34,7 @@ function SignIn(props) {
     }
     return (
         <Fragment>
-            <Layout2>
+            <Layout>
                 <Container>
                     <Row>
                         <Col>
@@ -81,7 +81,7 @@ function SignIn(props) {
                     />
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form> */}
-            </Layout2>
+            </Layout>
         </Fragment>
     )
 }

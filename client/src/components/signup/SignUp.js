@@ -1,5 +1,5 @@
 import React,{Fragment,useState}from 'react'
-import Layout2 from "../layout/Layout2.js"
+import Layout from "../layout/Layout.js"
 import Input from "../UI//Input.js"
 import {useSelector,useDispatch} from "react-redux"
 import {signupAction} from "../../redux/signup/signupAction.js"
@@ -30,7 +30,7 @@ function SignUp() {
 
     return (
         <Fragment>
-            <Layout2>
+            <Layout>
                 {
                     signupData.error? signupData.error.message:""
                 }
@@ -119,7 +119,7 @@ function SignUp() {
                     />
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form> */}
-            </Layout2>
+            </Layout>
         </Fragment>
     )
 }
